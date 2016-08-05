@@ -5,6 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateWordsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -18,14 +19,14 @@ class CreateWordsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
-            
+
             $table->index(['created_at']);
             $table->index(['category_id']);
-            
+
             $table->foreign('category_id')
-                    ->references('id')->on('categories')
-                    ->onDelete('cascade')
-                    ->onUpdate('no action');
+            ->references('id')->on('categories')
+            ->onDelete('cascade')
+            ->onUpdate('no action');
         });
     }
 
@@ -38,4 +39,5 @@ class CreateWordsTable extends Migration
     {
         Schema::drop('words');
     }
+
 }

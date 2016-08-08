@@ -1,2 +1,46 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
+body {
+    font-family: 'Lato';
+}
+.origin-word{
+    text-align: center;
+    h1{
+        font-size: 5em;
+    }
+}
+.answer{
+    .btn-primary{
+        min-width: 200px;
+    }
+}
+.fa-btn {
+    margin-right: 6px;
+}
+.list-word{
+    .col-md-6:nth-child(odd){
+        border-right: 1px solid red;
+    }
+}
+.lesson-result{
+    .item{
+        font-size: 2em;
+        color: red;
+    }
+}
+.sidebar{
+    .profile{
+        text-align: center;
+        img{
+            width: 80%;
+        }
+        p{
+            font-weight: bold;
+        }
+    }
+}
+.head-btn{
+    .btn{
+        font-size: 3em;
+        padding: 10px 60px;
+    }
+}

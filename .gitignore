@@ -6,3 +6,8 @@ Homestead.json
 .env
 /.vagrant
 composer.lock
+public/build/
+public/css/
+public/fonts/
+public/img/
+public/js/

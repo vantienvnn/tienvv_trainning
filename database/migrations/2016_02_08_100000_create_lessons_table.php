@@ -15,25 +15,21 @@ class CreateLessonsTable extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->string('result');
-            $table->timestamp('created_at');
+            $table->integer('category_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
+            $table->smallInteger('result');
+            $table->timestamp('created_at')->index();
             $table->timestamp('updated_at');
 
-            $table->index(['created_at']);
-            $table->index(['category_id']);
-            $table->index(['user_id']);
-
             $table->foreign('category_id')
-            ->references('id')->on('categories')
-            ->onDelete('cascade')
-            ->onUpdate('no action');
+                ->references('id')->on('categories')
+                ->onDelete('cascade')
+                ->onUpdate('no action');
 
             $table->foreign('user_id')
-            ->references('id')->on('users')
-            ->onDelete('cascade')
-            ->onUpdate('no action');
+                ->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('no action');
         });
     }
 

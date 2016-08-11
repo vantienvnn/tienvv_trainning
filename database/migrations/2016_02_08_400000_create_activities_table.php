@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWordAnswersTable extends Migration
+class CreateActivitiesTable extends Migration
 {
 
     /**
@@ -13,18 +13,13 @@ class CreateWordAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('word_answers', function (Blueprint $table) {
+        Schema::create('activities', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('content');
-            $table->integer('word_id')->unsigned()->index();
-            $table->smallInteger('correct');
+            $table->integer('target_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
+            $table->string('action_type');
             $table->timestamp('created_at')->index();
             $table->timestamp('updated_at');
-
-            $table->foreign('word_id')
-                ->references('id')->on('words')
-                ->onDelete('cascade')
-                ->onUpdate('no action');
         });
     }
 
@@ -35,7 +30,7 @@ class CreateWordAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('word_answers');
+        Schema::drop('posts');
     }
 
 }

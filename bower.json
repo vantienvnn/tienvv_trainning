@@ -1,0 +1,25 @@
+{
+  "name": "benlly",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Tien Vo <tienvv.it@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/vantienvnn",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6",
+    "components-font-awesome": "~4.6.1",
+    "jquery": "~3.1.0"
+  }
+}

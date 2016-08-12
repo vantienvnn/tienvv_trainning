@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WordAnswer extends Model
+class Category extends Model
 {
 
     /**
@@ -13,7 +13,7 @@ class WordAnswer extends Model
      * @var array
      */
     protected $fillable = [
-        'content', 'word_id', 'correct'
+        'name'
     ];
 
 }

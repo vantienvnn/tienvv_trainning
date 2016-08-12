@@ -17,7 +17,7 @@ class LessonsTableSeeder extends Seeder
         $categories = DB::table('categories')->whereIn('id', [1, 2])->get();
         // create lesson for each example categorys
         foreach ($categories as $category) {
-            factory(App\Lesson::class)->create([
+            factory(App\Entities\Lesson::class)->create([
                 'user_id' => $user->id,
                 'category_id' => $category->id
             ])->each(function($lesson) use ($user, $category) {
@@ -39,7 +39,7 @@ class LessonsTableSeeder extends Seeder
                 }
                 // insert activity for this lesson
                 DB::table('activities')->insert([
-                    'target_id' => $lesson,
+                    'target_id' => $lesson->id,
                     'user_id' => $user->id,
                     'action_type' => 'learned'
                 ]);

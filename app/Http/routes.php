@@ -13,11 +13,11 @@
 
 view()->share('pageTitle', 'Untitled');
 
-Route::get('/', 'HomeController@welcome');
+Route::get('/', 'WelcomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', 'Auth\\AuthController@logout');
-    Route::get('/home', 'HomeController@index');
+    Route::resource('/home', 'HomeController');
 });
 
 Route::get('login', 'Auth\\AuthController@getLogin');

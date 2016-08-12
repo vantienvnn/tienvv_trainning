@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
 {
-
+    
+    const TOTAL_QUESTIONS = 20;
+    
     /**
      * The attributes that are mass assignable.
      *

@@ -7,3 +7,5 @@ Homestead.json
 /.vagrant
 composer.lock
 Vagrantfile
+/public
+resources/vendor

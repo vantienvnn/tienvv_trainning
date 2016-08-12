@@ -41,6 +41,6 @@ $factory->define(App\Lesson::class, function () {
     return [
         'category_id' => 1,
         'user_id' => 1,
-        'result' => 0
+        'result' => App\Lesson::TOTAL_QUESTIONS
     ];
 });

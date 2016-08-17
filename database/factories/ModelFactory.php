@@ -11,7 +11,7 @@
   |
  */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Entities\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
@@ -21,14 +21,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 // word
-$factory->define(App\Word::class, function (Faker\Generator $faker) {
+$factory->define(App\Entities\Word::class, function (Faker\Generator $faker) {
     return [
         'content' => $faker->name,
         'category_id' => 1
     ];
 });
 // word answer
-$factory->define(App\WordAnswer::class, function (Faker\Generator $faker) {
+$factory->define(App\Entities\WordAnswer::class, function (Faker\Generator $faker) {
     return [
         'content' => $faker->name,
         'word_id' => 1,
@@ -37,10 +37,10 @@ $factory->define(App\WordAnswer::class, function (Faker\Generator $faker) {
 });
 
 // lesson
-$factory->define(App\Lesson::class, function () {
+$factory->define(App\Entities\Lesson::class, function () {
     return [
         'category_id' => 1,
         'user_id' => 1,
-        'result' => App\Lesson::TOTAL_QUESTIONS
+        'result' => App\Entities\Lesson::TOTAL_QUESTIONS
     ];
 });

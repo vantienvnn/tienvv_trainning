@@ -1,11 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Entities;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,4 +24,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
+
+    public function getLearnedWords()
+    {
+        $wordCount = $this->lessons()
+            ->select(\DB::raw('SUM(result) as word_count'))
+            ->first();
+        if($wordCount){
+            return $wordCount->word_count;
+        }
+        return 0;
+    }
+
 }

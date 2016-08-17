@@ -15,5 +15,21 @@ class Category extends Model
     protected $fillable = [
         'name'
     ];
+    
+    public function words()
+    {
+        return $this->hasMany(Word::class);
+    }
+    
+    public function getWordsCount()
+    {
+        return $this->words()->count();
+    }
+    
+    public function getWordsList()
+    {
+        return $this->words()->lists('content', 'id')
+            ->toArray();
+    }
 
 }

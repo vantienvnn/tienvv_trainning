@@ -30,10 +30,15 @@ class User extends Authenticatable
         return $this->hasMany(Lesson::class);
     }
 
-    public function getLearnedWords()
+    public function getLearnedWords($categoryId = null)
     {
         $wordCount = $this->lessons()
             ->select(\DB::raw('SUM(result) as word_count'))
+            ->where(function($query) use ($categoryId){
+                if($categoryId){
+                    $query->where('category_id', $categoryId);
+                }
+            })
             ->first();
         if($wordCount){
             return $wordCount->word_count;

@@ -30,5 +30,10 @@ class LessonWord extends Model
     {
         return $this->belongsTo(WordAnswer::class);
     }
+    
+    public function isCorrectAnswer()
+    {
+        return $this->word_answer_id == $this->word->correctAnswer->id;
+    }
 
 }

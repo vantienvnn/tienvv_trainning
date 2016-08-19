@@ -22,5 +22,21 @@ class Lesson extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    
+    public function lessonWords()
+    {
+        return $this->hasMany(LessonWord::class);
+    }
+    
+    public function getLearnedWordIds()
+    {
+        return $this->lessonWords()->lists('word_id')
+            ->toArray();
+    }
+    
+    public function getLearnedWords()
+    {
+        return $this->lessonWords()->get();
+    }
 
 }

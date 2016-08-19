@@ -20,6 +20,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('/home', 'HomeController');
     Route::resource('/word', 'WordController');
     Route::resource('/category', 'CategoryController');
+    Route::resource('/lesson', 'LessonController');
+    Route::resource('/result', 'ResultController');
 });
 
 Route::get('login', 'Auth\\AuthController@getLogin');

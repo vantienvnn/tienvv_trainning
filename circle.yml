@@ -1,0 +1,30 @@
+machine:
+  php:
+    version: 7.0.4
+  ruby:
+    version: 2.3.0
+
+database:
+  pre:
+    - cp .env.test .env
+    - mysql -e "CREATE USER 'homestead'@'localhost' IDENTIFIED BY 'secret';"
+    - mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'homestead'@'localhost' WITH GRANT OPTION;"
+    - mysql -e "CREATE DATABASE demo_test;"
+
+  override:
+    - php artisan migrate --database=testing
+    - php artisan db:seed --database=testing
+
+test:
+  override:
+    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
+    - ./vendor/bin/phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
+
+deployment:
+  develop:
+    branch: develop
+    commands:
+      - gem install capistrano -v 3.5.0
+      - gem install capistrano-laravel
+      - cap develop deploy
+

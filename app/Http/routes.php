@@ -13,11 +13,15 @@
 
 view()->share('pageTitle', 'Untitled');
 
-Route::get('/', 'HomeController@welcome');
+Route::get('/', 'WelcomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/logout', 'Auth\\AuthController@logout');
-    Route::get('/home', 'HomeController@index');
+    Route::resource('/home', 'HomeController');
+    Route::resource('/word', 'WordController');
+    Route::resource('/category', 'CategoryController');
+    Route::resource('/lesson', 'LessonController');
+    Route::resource('/result', 'ResultController');
 });
 
 Route::get('login', 'Auth\\AuthController@getLogin');

@@ -8,7 +8,7 @@ class WordPageTest extends TestCase
     public function testLoginRequired()
     {
         $response = $this->call('GET', '/word');
-        $this->assertResponseStatus(302);
+        $this->assertResponseStatus(305);
         $this->assertRedirectedTo('/login');
     }
 

@@ -8,7 +8,7 @@ class HomePageTest extends TestCase
     public function testLoginRequired()
     {
         $response = $this->call('GET', '/home');
-        $this->assertResponseStatus(302);
+        $this->assertResponseStatus(200);
         $this->assertRedirectedTo('/login');
     }
 

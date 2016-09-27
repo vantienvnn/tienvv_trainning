@@ -14,6 +14,8 @@ database:
   override:
     - php artisan migrate --database=testing
     - php artisan db:seed --database=testing
+    - bower install
+    - gulp
 
 test:
   override:

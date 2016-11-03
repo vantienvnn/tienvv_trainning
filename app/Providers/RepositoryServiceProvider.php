@@ -27,6 +27,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind('\App\Repositories\WordRepository', '\App\Repositories\WordRepositoryEloquent');
         $this->app->bind('\App\Repositories\CategoryRepository', '\App\Repositories\CategoryRepositoryEloquent');
         $this->app->bind('\App\Repositories\LessonRepository', '\App\Repositories\LessonRepositoryEloquent');
+        $this->app->bind('\App\Repositories\FacebookRepository', '\App\Repositories\FacebookEloquentRepository');
         //:end-bindings:
     }
 }
